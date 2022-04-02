@@ -30,7 +30,6 @@ const IndexPage: React.FC<Props> = ({ results }) => {
                     minWidth={180}
                     minHeight={180}
                   />
-                  <Image src={product.image}/>
                   <Stack>
                     <Text fontSize="2xl" fontWeight={500}>
                       {product.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
