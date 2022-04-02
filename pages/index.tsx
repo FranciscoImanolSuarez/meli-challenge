@@ -1,6 +1,5 @@
-import { Stack, Container, Box, Text } from '@chakra-ui/react'
+import { Stack, Container, Box, Text,Center, Image } from '@chakra-ui/react'
 import { GetServerSideProps } from 'next'
-import { ST } from 'next/dist/next-server/lib/utils'
 import React from 'react'
 import api from '../product/api'
 import { Product } from '../product/types'
@@ -11,7 +10,7 @@ interface Props {
 
 const IndexPage: React.FC<Props> = ({ results }) => {
   console.log({ results })
-  return <Box centerContent padding={4}>
+  return <Center  padding={4}>
     <Stack width="100%" padding={4} backgroundColor="white" borderRadius={2} boxShadow="sm">
       <Stack>
         {results.map(product =>
@@ -30,8 +29,8 @@ const IndexPage: React.FC<Props> = ({ results }) => {
                     height={180}
                     minWidth={180}
                     minHeight={180}
-                    src={product.image}
                   />
+                  <Image src={product.image}/>
                   <Stack>
                     <Text fontSize="2xl" fontWeight={500}>
                       {product.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
@@ -47,7 +46,7 @@ const IndexPage: React.FC<Props> = ({ results }) => {
         )}
       </Stack>
     </Stack>
-  </Box>
+  </Center>
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
